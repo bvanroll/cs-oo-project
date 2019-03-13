@@ -1,0 +1,48 @@
+﻿C# OO - zelfevaluatie
+=========================================
+
+Naam:	Michiel Van Dorpe
+Datum:  3 oktober 2018
+Volgnummer blok: 1
+
+Onderwerp: Online gokkantoor
+
+Beschrijving: 
+
+Met behulp van deze toepassing kan er een simulatie gemaakt worden waarbij er gegokt kan worden op wedstrijden.
+
+Functionele beschrijving:
+
+De bezoeker zal eerst en vooral een keuzeformulier voorgeschoten krijgen met daarop de wedstrijden waar er gegokt op kan worden.
+Dit keuzeformulier zal dus bestaan uit wedstrijden, een woordje uitleg en de mogelijkheid om naar een GUI-toepassing te gaan.
+
+In deze GUI-toepassing zullen personen kunnen toegevoegd worden die deelnemen aan het gokkantoor, 
+hier zullen persoonlijke gegevens worden ingegeven met daarbij de wedstrijd(en) waarop er deelgenomen wordt.
+
+Eens deze correct is ingevuld (18+) zullen deze gegevens worden opgeslaan in een lokaal bestand.
+
+Wanneer dit lokaal bestand is aangevuld kunnen de wedstrijden gesorteerd worden
+waarbij het duidelijk zichtbaar is hoeveel personen op gelijkspel, winst of verlies hebben gegokt.
+Hier zal dus ook de winnaar(s) bekend gemaakt worden.
+
+Voor de routines die gemeenschappelijk vanuit beide toepassingen gebruikt worden,
+zal een afzonderlijke klassebibliotheek opgesteld worden (die vanuit beide toepassingen gebruikt wordt).
+
+Leerdoelen:
+
+Blok 1:
+
+- kennismaking met Visual Studio & C#
+- debugging
+- unit tests
+- programmeerstijl
+- exception handling
+- enum
+- properties
+- generic collections
+- werken met bestanden/streams
+- objecten: cloning & serialisatie
+
+Bijkomend:
+
+- architectuur van een toepassing: meerlagenmodel

@@ -1,0 +1,49 @@
+C# OO - zelfevaluatie
+=========================================
+
+Naam:	Michiel Van Dorpe
+Datum:  30/10/2018
+Volgnummer blok: 1
+
+Onderwerp: Online Gokkantoor
+
+Stand van zaken: 
+
+Grootste deel zoals in het voorstel is volbracht.
+Enkel het stukje "'Value' en 'Reference' types, cloning van objecten" is nog niet uitgevoerd.
+
+
+Sterke punten:
+
+Duidelijke methodes, Meerlagen gebruikt (duidelijke klassen mooi geheel), eerste demo afgewerkt. 
+
+Aandachtspunten in je aanpak:
+
+Robuste code, efficiënte code (soms kan het gemakkelijker en korter).
+
+Technische aandachtspunten:
+
+Cloning van objecten heb ik momenteel nog niet goed onder de knie.
+Meerlagenmodel is nog steeds wennen, dit was een grote omvorming van mijn code.
+Alle andere punten zijn opgenomen mits gebruik van alternatieven bronnen zoals stackoverflow.
+
+Leerdoelen:
+
+< opsomming van de leerdoelen voor dit blok met het niveau waarop je dat doel al verworven hebt:
+ Leerdoelen:
+
+Blok 1:
+
+- kennismaking met Visual Studio & C#
+- debugging
+- programmeerstijl
+- exception handling
+- enum
+- properties
+- generic collections
+- werken met bestanden/streams
+- Interfaces
+- Lambda expressions
+- architectuur van een toepassing: meerlagenmodel
+
+>
