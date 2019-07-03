@@ -113,37 +113,14 @@ namespace LogicLayer
             keuzes.Add(new Keuze(128, 1, 0.15, Gokken.Thuisploeg));
         }
 
-        public List<string> GetGebruikers()
+        public List<Persoon> GetGebruikers()
         {
-            List<string> lijst = new List<string>();
-            if (personen != null) { 
-                foreach(Persoon p in personen)
-                {
-                    lijst.Add(p.persoon_ID+":"+p.naam + " " + p.voorNaam);
-                }
-            }
-            else
-            {
-                lijst.Add("None");
-            }
-            return lijst;
+            return personen;
         }
 
-        public List<string> GetWedstrijden()
+        public List<Wedstrijden> GetWedstrijden()
         {
-            List<string> temp = new List<string>();
-            if (personen != null)
-            {
-                foreach (Wedstrijden w in wedstrijden)
-                {
-                    temp.Add( w.thuisPloeg + " - " + w.uitPloeg);
-                }
-            }
-            else
-            {
-                temp.Add("None");
-            }
-            return temp;
+            return wedstrijden;
         }
 
         public List<string> GetGeldVerdubbeling(int ID)

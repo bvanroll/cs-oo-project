@@ -34,6 +34,11 @@ namespace LogicLayer
                 throw new Exception("Foutieve ingave: " + ex);
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
     

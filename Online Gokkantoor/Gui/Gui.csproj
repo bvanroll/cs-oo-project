@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62B345B0-420C-4926-9E6E-9B532AFD3713}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Gui</RootNamespace>
+    <AssemblyName>Gui</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="mainForm.aspx" />
+    <Content Include="Admin.aspx" />
+    <Content Include="addUser.aspx" />
+    <Content Include="addBet.aspx" />
+    <Content Include="addMatch.aspx" />
+    <Content Include="addPloeg.aspx" />
+    <Content Include="addBalance.aspx" />
+    <Content Include="updateGame.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mainForm.aspx.cs">
+      <DependentUpon>mainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mainForm.aspx.designer.cs">
+      <DependentUpon>mainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addUser.aspx.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addUser.aspx.designer.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addBet.aspx.cs">
+      <DependentUpon>addBet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addBet.aspx.designer.cs">
+      <DependentUpon>addBet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addMatch.aspx.cs">
+      <DependentUpon>addMatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addMatch.aspx.designer.cs">
+      <DependentUpon>addMatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addPloeg.aspx.cs">
+      <DependentUpon>addPloeg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addPloeg.aspx.designer.cs">
+      <DependentUpon>addPloeg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addBalance.aspx.cs">
+      <DependentUpon>addBalance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addBalance.aspx.designer.cs">
+      <DependentUpon>addBalance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateGame.aspx.cs">
+      <DependentUpon>updateGame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateGame.aspx.designer.cs">
+      <DependentUpon>updateGame.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{82F1AF49-F9FA-42A1-BD3B-A37C36E340AD}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Globals\Globals.csproj">
+      <Project>{3643BC50-8412-4C17-99E0-9D4BF7EDEB78}</Project>
+      <Name>Globals</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\persons.json" />
+    <None Include="Data\bets.json" />
+    <None Include="Data\ploegen.json" />
+    <None Include="Data\games.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
