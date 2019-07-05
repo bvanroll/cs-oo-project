@@ -16,6 +16,12 @@ namespace Globals.classes
         {
             this.score = score;
         }
+        public Ploeg(string naam, int score, int Id)
+        {
+            this.score = score;
+            this.naam = naam;
+            this.Id = Id;
+        }
 
         public int Id { get; set; }
         public string naam { get; set; }
@@ -24,6 +30,14 @@ namespace Globals.classes
         
         public override bool Equals(object obj)
         {
+            try
+            {
+                Ploeg te = (Ploeg)obj;
+
+            } catch (Exception e)
+            {
+                return false;
+            }
             Ploeg t = (Ploeg)obj;
             return this.Id == t.Id;
         }
@@ -40,7 +54,7 @@ namespace Globals.classes
             {
                 score = ":" + this.score;
             }
-            return this.naam + score;
+            return this.Id + ": " + this.naam + score;
         }
 
     }

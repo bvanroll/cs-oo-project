@@ -24,7 +24,7 @@ namespace Globals.classes
         public override bool Equals(object obj)
         {
             Bet b = (Bet)obj;
-            return b.game == this.game && this.person == b.person && b.cash == this.cash && this.ploeg == b.ploeg;
+            return this.Id == b.Id;
         }
 
         public override int GetHashCode()
@@ -51,7 +51,7 @@ namespace Globals.classes
 
         public override string ToString()
         {
-            return person.ToString() + ":" + this.cash + "$ on " + this.game.ToString();
+            return this.Id + ": " + person.ToString() + ":" + this.cash + "$ on " + this.game.ToString();
         }
     }
 }

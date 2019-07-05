@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
+using Globals;
 using Globals.classes;
 using Logic;
 using static Globals.main;
@@ -29,12 +30,8 @@ namespace Gui
             logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
             try
             {
-
                 Game currGame = (Game)HttpContext.Current.Application["currGame"];
-
-                IList<state> boundList2 = (IList<state>)teams.DataSource;
-                state currPloeg = boundList2[teams.SelectedIndex];
-
+                state currPloeg = (state)Enum.Parse(typeof(state), teams.SelectedValue);
                 double cash = double.Parse(amount.Text);
                 Person currPers = (Person)HttpContext.Current.Application["user"];
                 if (cash > currPers.balance)

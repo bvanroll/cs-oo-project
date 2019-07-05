@@ -171,5 +171,44 @@ namespace Logic
         {
             persons[persons.FindIndex(e => e.Id == p.Id)] = p;            
         }
+
+        public Person getPersonByString(string s)
+        {
+            foreach (Person p in persons)
+            {
+                if (p.ToString() == s)
+                {
+                    return p;
+                }
+            }
+            throw new Exception("No person by that personString found");
+        }
+
+        public Ploeg getPloegByString(string s)
+        {
+            foreach (Ploeg p in ploegen)
+            {
+                if (p.ToString() == s) return p;
+            }
+            throw new Exception("No ploeg by that ploegString was found");
+        }
+
+        public Game getGameByString(string s)
+        {
+            foreach (Game g in games)
+            {
+                if (g.ToString() == s) return g;
+            }
+            throw new Exception("No game by that gameString found");
+        }
+
+        public Bet getBetByString(string s)
+        {
+            foreach (Bet b in bets)
+            {
+                if (b.ToString() == s) return b;
+            }
+            throw new Exception("No bet by that betString was found");
+        }
     }
 }

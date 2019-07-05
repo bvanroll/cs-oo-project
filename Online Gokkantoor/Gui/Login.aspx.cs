@@ -14,22 +14,35 @@ namespace Gui
 
             if (!Page.IsPostBack)
             {
-                LogicLayer logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
-                lstUsers.DataSource = logic.persons;
-                lstUsers.DataBind();
+                
             }
         }
+        
         protected override void OnInitComplete(EventArgs e)
         {
             base.OnInitComplete(e);
+            LogicLayer logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
+            lstUsers.DataSource = logic.persons;
+            lstUsers.DataBind();
         }
         protected override void OnPreLoad(EventArgs e)
         {
             base.OnPreLoad(e);
+            LogicLayer logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
+            lstUsers.DataSource = logic.persons;
+            lstUsers.DataBind();
+        }
+        protected override void OnLoadComplete(EventArgs e)
+        {
+            base.OnLoadComplete(e);
+            LogicLayer logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
+            lstUsers.DataSource = logic.persons;
+            lstUsers.DataBind();
         }
         public void Login_Click(object o, EventArgs e)
         {
-            HttpContext.Current.Application["user"] = lstUsers.SelectedItem;
+            LogicLayer logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
+            HttpContext.Current.Application["user"] = logic.getPersonByString(lstUsers.SelectedValue);
             Server.Transfer("mainForm.aspx");
 
         }

@@ -46,9 +46,9 @@ namespace Gui
 
         public void updateGame_Click(object sender, EventArgs args)
         {
+            logic = (LogicLayer)System.Web.HttpContext.Current.Application["logic"];
 
-            IList<Game> boundList2 = (IList<Game>)listGames.DataSource;
-            HttpContext.Current.Application["currGame"] = boundList2[listGames.SelectedIndex];
+            HttpContext.Current.Application["currGame"] = logic.getGameByString(listGames.SelectedValue);
             Server.Transfer("updateGame.aspx");
         }
 

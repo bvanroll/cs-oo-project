@@ -6,4 +6,5 @@ namespace Globals
     {
         public enum state { draw, home, away };
     }
+
 }

@@ -71,8 +71,9 @@ namespace Globals.classes
 
         public override bool Equals(object obj)
         {
-            Game g = (Game)obj;
-            return this.home == g.away;
+            
+            Game ga = (Game)obj;
+            return this.Id == ga.Id;
         }
 
         public override int GetHashCode()
@@ -83,7 +84,7 @@ namespace Globals.classes
 
         public override string ToString()
         {
-            return this.home.ToString() + " / " + this.away.ToString();
+            return this.Id + ": " + this.home.ToString() + " / " + this.away.ToString();
         }
     }
 }

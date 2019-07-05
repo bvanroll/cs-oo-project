@@ -30,7 +30,7 @@ namespace Data
                 }
             } catch (Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             
             return list;
@@ -51,6 +51,7 @@ namespace Data
             } catch (Exception e)
             {
 
+                throw new Exception(e.Message);
             }
             return list;
         }
@@ -68,6 +69,7 @@ namespace Data
                 }
             } catch (Exception e)
             {
+                throw new Exception(e.Message);
 
             }
             return list;
@@ -86,6 +88,7 @@ namespace Data
                 }
             } catch (Exception e)
             {
+                throw new Exception(e.Message);
 
             }
             return list;

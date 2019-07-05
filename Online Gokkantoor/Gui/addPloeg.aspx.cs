@@ -26,6 +26,7 @@ namespace Gui
             logic.addPloeg(p);
             logic.save();
             HttpContext.Current.Application["logic"] = logic;
+            Response.Redirect("Admin.aspx");
         }
         public void ret_Click(object sender, EventArgs e)
         {

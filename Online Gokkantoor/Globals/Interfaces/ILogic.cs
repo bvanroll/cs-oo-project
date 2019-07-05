@@ -21,5 +21,9 @@ namespace Globals.Interfaces
         void save();
         void updateGame(Game g);
         void updatePerson(Person p);
+        Person getPersonByString(string s);
+        Ploeg getPloegByString(string s);
+        Game getGameByString(string s);
+        Bet getBetByString(string s);
     }
 }

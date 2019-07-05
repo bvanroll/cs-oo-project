@@ -34,7 +34,7 @@ namespace Globals.classes
 
         public override string ToString()
         {
-            return this.name + " " + this.lastname;
+            return this.Id + ": " +this.name + " " + this.lastname;
         }
     }
 }
