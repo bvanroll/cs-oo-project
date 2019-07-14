@@ -1,12 +1,21 @@
 ﻿using System;
 using Globals.Interfaces;
+using Newtonsoft.Json;
 using static Globals.main;
 
 namespace Globals.classes
 {
     public class Game : IGame
     {
-        public DateTime date { get; set; } //y m d
+
+        [JsonConstructor]
+        public Game(int Id, Ploeg home, Ploeg away, DateTime date)
+        {
+            this.Id = Id;
+            this.home = home;
+            this.away = away;
+            this.date = date;
+        }
         public Game(Ploeg home, Ploeg away, DateTime d)
         {
             this.home = home;
@@ -27,7 +36,6 @@ namespace Globals.classes
             this.home = home ?? throw new ArgumentNullException(nameof(home));
             this.away = away ?? throw new ArgumentNullException(nameof(away));
         }
-
         public Game(int id, Ploeg home, Ploeg away, int scoreHome, int scoreAway)
         {
             Id = id;
@@ -36,17 +44,14 @@ namespace Globals.classes
             this.home.score = scoreHome;
             this.away.score = scoreAway;
         }
-
+        [JsonProperty("id")]
         public int Id { get; set; }
+        [JsonProperty("home")]
         public Ploeg home { get; set; }
+        [JsonProperty("away")]
         public Ploeg away { get; set; }
-
-
-
-
-
-
-
+        [JsonProperty("Date")]
+        public DateTime date { get; set; } //y m d
 
         public state getWinner()
         {
@@ -61,27 +66,25 @@ namespace Globals.classes
             }
 
         }
-
-
-
-
-
-
-
-
         public override bool Equals(object obj)
         {
-            
+            try
+            {
+                Game gam = (Game)obj;
+
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
             Game ga = (Game)obj;
+
             return this.Id == ga.Id;
         }
-
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
-
-
         public override string ToString()
         {
             return this.Id + ": " + this.home.ToString() + " / " + this.away.ToString();

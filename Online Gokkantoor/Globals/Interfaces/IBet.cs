@@ -10,7 +10,6 @@ namespace Globals.Interfaces
         Game game { get; set; }
         Person person { get; set; }
         double cash { get; set; }
-        bool succes { get; }
         state ploeg { get; set; }
         bool finished { get; set; }
         double getProfit();

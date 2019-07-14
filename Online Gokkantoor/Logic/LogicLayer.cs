@@ -18,6 +18,10 @@ namespace Logic
             bets = d.getBets();
             ploegen = d.getPloegen();
             games = d.getGames();
+            if (games == null) games = new List<Game>();
+            if (ploegen == null) ploegen = new List<Ploeg>();
+            if (persons == null) persons = new List<Person>();
+            if (bets == null) bets = new List<Bet>();
         }
 
         public LogicLayer(bool testMode)
@@ -72,6 +76,10 @@ namespace Logic
         public void addGame(Game g)
         {
             games.Add(g);
+            if (true)
+            {
+                int i = 0;
+            }
             fixIds();
         }
 
@@ -125,10 +133,10 @@ namespace Logic
         public void save()
         {
             fixIds();
-            d.saveBets(bets);
-            d.saveGames(games);
             d.savePersons(persons);
             d.savePloegen(ploegen);
+            d.saveGames(games);
+            d.saveBets(bets);
         }
 
         public void updateGame(Game g)

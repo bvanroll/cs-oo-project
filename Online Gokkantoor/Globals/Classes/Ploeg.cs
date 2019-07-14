@@ -1,10 +1,19 @@
 ﻿using System;
 using Globals.Interfaces;
+using Newtonsoft.Json;
 
 namespace Globals.classes
 {
     public class Ploeg : IPloeg
     {
+        [JsonConstructor]
+        public Ploeg(int Id, string naam, int score)
+        {
+            this.Id = Id;
+            this.naam = naam;
+            this.score = score;
+        }
+
         public Ploeg(string naam)
         {
             this.naam = naam;
