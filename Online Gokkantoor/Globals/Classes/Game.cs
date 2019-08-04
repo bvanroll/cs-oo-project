@@ -11,38 +11,62 @@ namespace Globals.classes
         [JsonConstructor]
         public Game(int Id, Ploeg home, Ploeg away, DateTime date)
         {
+            homeSetBool = false;
+            awaySetBool = false;
+
             this.Id = Id;
             this.home = home;
             this.away = away;
+            this.home.scoreChanged += homeSet;
+            this.away.scoreChanged += awaySet;
             this.date = date;
         }
         public Game(Ploeg home, Ploeg away, DateTime d)
         {
+            homeSetBool = false;
+            awaySetBool = false;
+
             this.home = home;
             this.away = away;
+            this.home.scoreChanged += homeSet;
+            this.away.scoreChanged += awaySet;
+
             this.date = d;
         }
         public Game(Ploeg home, Ploeg away, DateTime d, int scoreHome, int scoreAway)
         {
+            homeSetBool = false;
+            awaySetBool = false;
+
             this.home = home;
             this.away = away;
-            this.home.score = scoreHome;
-            this.away.score = scoreAway;
+            this.home.scoreChanged += homeSet;
+            this.away.scoreChanged += awaySet;
+            this.home.setScore(scoreHome);
+            this.away.setScore(scoreAway);
             this.date = d;
         }
         public Game(int id, Ploeg home, Ploeg away)
         {
+            homeSetBool = false;
+            awaySetBool = false;
             Id = id;
             this.home = home ?? throw new ArgumentNullException(nameof(home));
             this.away = away ?? throw new ArgumentNullException(nameof(away));
+            this.home.scoreChanged += homeSet;
+            this.away.scoreChanged += awaySet;
         }
         public Game(int id, Ploeg home, Ploeg away, int scoreHome, int scoreAway)
         {
+            homeSetBool = false;
+            awaySetBool = false;
             Id = id;
             this.home = home ?? throw new ArgumentNullException(nameof(home));
             this.away = away ?? throw new ArgumentNullException(nameof(away));
-            this.home.score = scoreHome;
-            this.away.score = scoreAway;
+            this.home.scoreChanged += homeSet;
+            this.away.scoreChanged += awaySet;
+            this.home.setScore(scoreHome);
+            this.away.setScore(scoreAway);
         }
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -52,6 +76,18 @@ namespace Globals.classes
         public Ploeg away { get; set; }
         [JsonProperty("Date")]
         public DateTime date { get; set; } //y m d
+
+        private bool homeSetBool;
+        private bool awaySetBool;
+        private void homeSet (object s, EventArgs e)
+        {
+            homeSetBool = true;
+           
+        }
+        private void awaySet(object s, EventArgs e)
+        {
+            awaySetBool = true;
+        }
 
         public state getWinner()
         {

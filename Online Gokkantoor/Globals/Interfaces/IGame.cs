@@ -11,5 +11,6 @@ namespace Globals.Interfaces
         Ploeg away { get; set; }
         DateTime date { get; set; }
         state getWinner();
+
     }
 }

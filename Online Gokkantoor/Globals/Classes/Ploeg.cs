@@ -34,9 +34,11 @@ namespace Globals.classes
 
         public int Id { get; set; }
         public string naam { get; set; }
-        public int score { get; set; }
-        public bool scoreSet { get => this.score != int.MinValue; }
-        
+        public int score { get; private set; }
+        public bool scoreSet { get; }
+
+        public event EventHandler scoreChanged;
+
         public override bool Equals(object obj)
         {
             try
@@ -66,5 +68,15 @@ namespace Globals.classes
             return this.Id + ": " + this.naam + score;
         }
 
+        public void setScore(int i)
+        {
+            EventHandler h = scoreChanged;
+            if (null != h) h(this, EventArgs.Empty);
+            this.score = i;
+        }
+        public int getScore()
+        {
+            return this.score;
+        }
     }
 }

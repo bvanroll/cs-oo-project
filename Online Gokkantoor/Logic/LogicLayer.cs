@@ -13,7 +13,6 @@ namespace Logic
         public LogicLayer()
         {
             d = new dataLayer();
-
             persons = d.getPersons();
             bets = d.getBets();
             ploegen = d.getPloegen();
@@ -76,10 +75,6 @@ namespace Logic
         public void addGame(Game g)
         {
             games.Add(g);
-            if (true)
-            {
-                int i = 0;
-            }
             fixIds();
         }
 
