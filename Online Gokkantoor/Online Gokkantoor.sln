@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "old", "old", "{BF8F2852-F325-4C72-AFF6-E0C40808625B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online Gokkantoor_GUI", "Online Gokkantoor\Online Gokkantoor_GUI.csproj", "{62E2ECA5-72AF-4401-9FE3-D7BD5044D7E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLaag", "DataLaag\DataLaag.csproj", "{CA62D8EA-2739-4C85-81B4-FBA040592DAE}"
@@ -10,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{517C3448-BD87-4D62-9316-6BABBC9A9CFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "Console\ConsoleApp.csproj", "{75E1DDD1-C2F0-4C29-A95A-85A72D8C4948}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "old", "old", "{BF8F2852-F325-4C72-AFF6-E0C40808625B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{46C1FC26-4A1F-43E4-8682-853010AB38AC}"
 EndProject
