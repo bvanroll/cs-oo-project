@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Globals.classes;
+using Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace GUI_Gokkantoor
     public partial class Gokspel : Form
     {
         public LogicLayer l;
-        public Gokspel(Logic.LogicLayer l)
+        public Person p;
+        public Gokspel(Logic.LogicLayer l, Person p)
         {
-            l = new LogicLayer();
+            this.l = l;
             InitializeComponent();
+            this.p = p;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -48,6 +51,11 @@ namespace GUI_Gokkantoor
             this.Hide();
             a.FormClosed += adminClosed;
             a.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
