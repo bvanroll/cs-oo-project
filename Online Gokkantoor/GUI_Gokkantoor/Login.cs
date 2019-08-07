@@ -17,18 +17,16 @@ namespace GUI_Gokkantoor
         public LogicLayer l;
         public Login(LogicLayer l)
         {
-            l = new LogicLayer();
+            this.l = l;
             InitializeComponent();
             listBox1.DataSource = l.persons;
+            listBox1.DataSource = l.persons;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Person p = (Person)listBox1.SelectedItem;
-
-
-
-
             Gokspel a = new Gokspel(l,p);
             this.Hide();
             a.FormClosed += adminClosed;

@@ -110,11 +110,13 @@ namespace Logic
 
         public Person getPerson(int id)
         {
-            foreach (Person b in persons)
-            {
-                if (b.Id == id) return b;
-            }
-            throw new Exception("No bets found with that id");
+            return persons.FindLast(x => id == x.Id);
+            
+        }
+
+        public List<Person> filter(List<Person> p)
+        {
+            return filter(p);
         }
 
         public Ploeg getPloeg(int id)
