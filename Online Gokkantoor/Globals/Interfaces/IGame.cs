@@ -7,8 +7,8 @@ namespace Globals.Interfaces
     public interface IGame
     {
         int Id { get; set; }
-        Ploeg home { get; set; }
-        Ploeg away { get; set; }
+        PloegInMatch home { get; set; }
+        PloegInMatch away { get; set; }
         DateTime date { get; set; }
         state getWinner();
 

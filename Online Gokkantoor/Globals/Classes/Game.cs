@@ -9,7 +9,7 @@ namespace Globals.classes
     {
 
         [JsonConstructor]
-        public Game(int Id, Ploeg home, Ploeg away, DateTime date)
+        public Game(int Id, PloegInMatch home, PloegInMatch away, DateTime date)
         {
             homeSetBool = false;
             awaySetBool = false;
@@ -21,7 +21,7 @@ namespace Globals.classes
             this.away.scoreChanged += awaySet;
             this.date = date;
         }
-        public Game(Ploeg home, Ploeg away, DateTime d)
+        public Game(PloegInMatch home, PloegInMatch away, DateTime d)
         {
             homeSetBool = false;
             awaySetBool = false;
@@ -38,15 +38,15 @@ namespace Globals.classes
             homeSetBool = false;
             awaySetBool = false;
 
-            this.home = home;
-            this.away = away;
+            this.home = (PloegInMatch) home; //cast de oorspronkelijke klasse naar deze subklasse
+            this.away = (PloegInMatch) away;
             this.home.scoreChanged += homeSet;
             this.away.scoreChanged += awaySet;
             this.home.setScore(scoreHome);
             this.away.setScore(scoreAway);
             this.date = d;
         }
-        public Game(int id, Ploeg home, Ploeg away)
+        public Game(int id, PloegInMatch home, PloegInMatch away)
         {
             homeSetBool = false;
             awaySetBool = false;
@@ -71,9 +71,9 @@ namespace Globals.classes
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("home")]
-        public Ploeg home { get; set; }
+        public PloegInMatch home { get; set; }
         [JsonProperty("away")]
-        public Ploeg away { get; set; }
+        public PloegInMatch away { get; set; }
         [JsonProperty("Date")]
         public DateTime date { get; set; } //y m d
 
