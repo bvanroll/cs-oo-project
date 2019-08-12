@@ -9,26 +9,29 @@ namespace Globals.classes
 {
     public class PloegInMatch : Ploeg
     {
-        public PloegInMatch(int id, string naam) : base(id, naam)
+        public int Id;
+        public PloegInMatch(int id, string naam) : base( naam)
         {
+            this.Id = id;
         }
 
-        public PloegInMatch(int id, string naam, int score) : base(id, naam)
+        public PloegInMatch(int id, string naam, int score) : base(naam)
         {
+            this.Id = id;
             setScore(score);
         }
 
-        public PloegInMatch(Ploeg p) : base(p)
+        public PloegInMatch(Ploeg p, int id) : base(p)
         {
-            this.Id = p.Id;
+            this.Id = id;
             this.naam = p.naam;
 
         }
 
 
-        public PloegInMatch(Ploeg p, int score) : base(p)
+        public PloegInMatch(Ploeg p, int score, int id) : base(p)
         {
-            this.Id = p.Id;
+            this.Id = id;
             this.naam = p.naam;
             setScore(score);
 
@@ -46,6 +49,16 @@ namespace Globals.classes
             this.scoreSet = true;
         }
 
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
+        public override string ToString()
+        {
+            if (this.scoreSet) return this.naam + ": " +this.score;
+            else return this.naam + ": NaN";
+
+        }
     }
 }

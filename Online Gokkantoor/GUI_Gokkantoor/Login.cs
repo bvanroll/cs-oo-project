@@ -19,8 +19,7 @@ namespace GUI_Gokkantoor
         {
             this.l = l;
             InitializeComponent();
-            listBox1.DataSource = l.persons;
-            listBox1.DataSource = l.persons;
+            listBox1.DataSource = l.GetPeople();
 
         }
 

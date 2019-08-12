@@ -35,8 +35,15 @@ namespace Globals.classes
 
         public override bool Equals(object obj)
         {
-            Person p = (Person)obj;
-            return this.Id == p.Id;
+            try
+            {
+
+                Person p = (Person)obj;
+                return this.Id == p.Id;
+            } catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public override int GetHashCode()

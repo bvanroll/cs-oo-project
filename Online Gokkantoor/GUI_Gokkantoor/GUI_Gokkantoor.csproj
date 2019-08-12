@@ -147,10 +147,7 @@
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\bets.json" />
-    <None Include="Data\games.json" />
-    <None Include="Data\persons.json" />
-    <None Include="Data\ploegen.json" />
+    <None Include="Data\db.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

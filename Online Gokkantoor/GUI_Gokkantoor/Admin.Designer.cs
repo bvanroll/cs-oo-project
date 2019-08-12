@@ -83,6 +83,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 95);
             this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -106,6 +107,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

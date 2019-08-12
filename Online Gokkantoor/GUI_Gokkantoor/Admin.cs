@@ -16,7 +16,7 @@ namespace GUI_Gokkantoor
         public LogicLayer l;
         public Admin(LogicLayer l)
         {
-            l = new LogicLayer();
+            this.l = l;
             InitializeComponent();
         }
 
@@ -54,6 +54,16 @@ namespace GUI_Gokkantoor
             this.Hide();
             a.FormClosed += adminClosed;
             a.Show();
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+            listBox1.DataSource = l.GetGames();
+        }
+
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

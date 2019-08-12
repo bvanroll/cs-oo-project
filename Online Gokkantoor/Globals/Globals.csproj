@@ -35,21 +35,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\PloegInMatch.cs" />
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Bet.cs" />
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Ploeg.cs" />
     <Compile Include="Interfaces\IBet.cs" />
-    <Compile Include="Interfaces\IData.cs" />
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\ILogic.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Interfaces\IPloeg.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

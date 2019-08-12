@@ -6,24 +6,22 @@ namespace Globals.Interfaces
 {
     public interface ILogic
     {
-        List<Person> persons { get; set; }
-        List<Bet> bets { get; set; }
-        List<Ploeg> ploegen { get; set; }
-        List<Game> games { get; set; }
-        Person getPerson(int id);
-        Bet getBet(int id);
-        Ploeg getPloeg(int id);
-        Game getGame(int id);
-        void addPloeg(Ploeg p);
-        void addGame(Game g);
+
         void addBet(Bet b);
+        void addGame(Game g);
         void addPerson(Person p);
+        void addPloeg(Ploeg p);
+        void addPloegInMatch(PloegInMatch p);
+        Bet getBet(int id);
+        List<Bet> GetBets();
+        Game getGame(int id);
+        List<Game> GetGames();
+        Person getPerson(int id);
+        List<Person> GetPeople();
+        Ploeg getPloeg(string naam);
+        List<Ploeg> GetPloegen();
+        PloegInMatch GetPloegInMatch(int id);
+        List<PloegInMatch> GetPloegInMatches();
         void save();
-        void updateGame(Game g);
-        void updatePerson(Person p);
-        Person getPersonByString(string s);
-        Ploeg getPloegByString(string s);
-        Game getGameByString(string s);
-        Bet getBetByString(string s);
     }
 }

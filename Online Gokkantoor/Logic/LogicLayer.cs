@@ -8,212 +8,118 @@ namespace Logic
 {
     public class LogicLayer : ILogic
     {
-        private dataLayer d;
+        private dataLayer data;
 
+        private db d;
         public LogicLayer()
         {
-            d = new dataLayer();
-            persons = d.getPersons();
-            bets = d.getBets();
-            ploegen = d.getPloegen();
-            games = d.getGames();
-            if (games == null) games = new List<Game>();
-            if (ploegen == null) ploegen = new List<Ploeg>();
-            if (persons == null) persons = new List<Person>();
-            if (bets == null) bets = new List<Bet>();
-        }
-
-        public LogicLayer(bool testMode)
-        {
-            d = new dataLayer();
-            this.persons = new List<Person>();
-            Person p = new Person("beppe", "vanrolleghem", "123straat", "04877777", 5);
-            fixIds();
-            this.persons.Add(p);
-        }
-
-        public List<Person> persons { get ; set; }
-        public List<Bet> bets { get; set; }
-        public List<Ploeg> ploegen { get; set; }
-        public List<Game> games { get; set; }
-
-        private void fixIds()
-        {
-            int i = 0;
-            foreach(Person p in persons)
-            {
-                p.Id = i;
-                i++;
-            }
-            i = 0;
-            foreach(Bet b in bets)
-            {
-                b.Id = i;
-                i++;
-            }
-            i = 0;
-            foreach(Ploeg p in ploegen)
-            {
-                p.Id = i;
-                i++;
-            }
-            i = 0;
-            foreach(Game g in games)
-            {
-                g.Id = i;
-                i++;
-            }
+            data = new dataLayer();
+            d = data.getDb();
+            if (d.games == null) d.games = new List<Game>();
+            if (d.ploegen == null) d.ploegen = new List<Ploeg>();
+            if (d.persons == null) d.persons = new List<Person>();
+            if (d.bets == null) d.bets = new List<Bet>();
+            if (d.ploegInMatches == null) d.ploegInMatches = new List<PloegInMatch>();
         }
 
         public void addBet(Bet b)
         {
-            
-            bets.Add(b);
-            fixIds();
+
+            d.bets.Add(b);
         }
 
         public void addGame(Game g)
         {
-            games.Add(g);
-            fixIds();
+            d.games.Add(g);
         }
 
         public void addPerson(Person p)
         {
-            persons.Add(p);
-            fixIds();
+            d.persons.Add(p);
         }
 
         public void addPloeg(Ploeg p)
         {
-            ploegen.Add(p);
-            fixIds();
+            d.ploegen.Add(p);
+        }
+
+        public void addPloegInMatch(PloegInMatch p)
+        {
+            d.ploegInMatches.Add(p);
         }
 
         public Bet getBet(int id)
         {
-            foreach(Bet b in bets)
+            foreach(Bet b in d.bets)
             {
                 if (b.Id == id) return b;
             }
             throw new Exception("No bets found with that id");
+        }
+
+        public List<Bet> GetBets()
+        {
+            return d.bets;
         }
 
         public Game getGame(int id)
         {
-            foreach (Game b in games)
+            foreach (Game b in d.games)
             {
                 if (b.Id == id) return b;
             }
             throw new Exception("No bets found with that id");
+        }
+
+        public List<Game> GetGames()
+        {
+            return d.games;
+        }
+
+        public List<Person> GetPeople()
+        {
+            return d.persons;
         }
 
         public Person getPerson(int id)
         {
-            return persons.FindLast(x => id == x.Id);
+            return d.persons.FindLast(x => id == x.Id); //lambda 
             
         }
 
-        public List<Person> filter(List<Person> p)
+        public Ploeg getPloeg(string naam)
         {
-            return filter(p);
+            foreach (Ploeg b in d.ploegen)
+            {
+                if (b.naam == naam) return b;
+            }
+            throw new Exception("No ploegen found with that naam");
         }
 
-        public Ploeg getPloeg(int id)
+        public List<Ploeg> GetPloegen()
         {
-            foreach (Ploeg b in ploegen)
+            return d.ploegen;
+        }
+
+        public PloegInMatch GetPloegInMatch(int id)
+        {
+
+            foreach (PloegInMatch b in d.ploegInMatches)
             {
                 if (b.Id == id) return b;
             }
-            throw new Exception("No bets found with that id");
+            throw new Exception("No ploegen found with that naam");
         }
+
+        public List<PloegInMatch> GetPloegInMatches()
+        {
+            return d.ploegInMatches;
+        }
+
         public void save()
         {
-            fixIds();
-            d.savePersons(persons);
-            d.savePloegen(ploegen);
-            d.saveGames(games);
-            d.saveBets(bets);
+            data.saveDb(d);
         }
 
-        public void updateGame(Game g)
-        {
-            foreach (Game ga in games)
-            {
-                if (ga.Id == g.Id)
-                {
-                    ga.home = g.home;
-                    ga.away = g.away;
-                   
-                }
-            }
-            updateBets();
-            updateBalances();
-        }
-
-        private void updateBets()
-        {
-            foreach (Bet b in bets)
-            {
-                Game g = games.Find(e => b.game.Id == e.Id);
-                b.game = g;
-                if (g.away.scoreSet && g.home.scoreSet) { b.finished = true; }
-            }
-            
-        }
-        private void updateBalances()
-        {
-            foreach (Person p in persons)
-            {
-                foreach (Bet b in bets)
-                {
-                    if (b.Equals(p) && b.finished) p.balance += b.getProfit();
-                }
-            }
-        }
-
-        public void updatePerson(Person p)
-        {
-            persons[persons.FindIndex(e => e.Id == p.Id)] = p;            
-        }
-
-        public Person getPersonByString(string s)
-        {
-            foreach (Person p in persons)
-            {
-                if (p.ToString() == s)
-                {
-                    return p;
-                }
-            }
-            throw new Exception("No person by that personString found");
-        }
-
-        public Ploeg getPloegByString(string s)
-        {
-            foreach (Ploeg p in ploegen)
-            {
-                if (p.ToString() == s) return p;
-            }
-            throw new Exception("No ploeg by that ploegString was found");
-        }
-
-        public Game getGameByString(string s)
-        {
-            foreach (Game g in games)
-            {
-                if (g.ToString() == s) return g;
-            }
-            throw new Exception("No game by that gameString found");
-        }
-
-        public Bet getBetByString(string s)
-        {
-            foreach (Bet b in bets)
-            {
-                if (b.ToString() == s) return b;
-            }
-            throw new Exception("No bet by that betString was found");
-        }
     }
 }

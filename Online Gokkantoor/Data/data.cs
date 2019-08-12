@@ -7,127 +7,38 @@ using Newtonsoft.Json;
 
 namespace Data
 {
-    public class dataLayer : IData
+    public class dataLayer
     {
         public dataLayer()
         {
 
         }
 
-
-
-        public List<Bet> getBets()
+        public db getDb()
         {
-            List<Bet> list = new List<Bet>();
             try
             {
-                using (StreamReader file = File.OpenText(@"../../Data/bets.json"))
-                {
-
-                    JsonSerializer serializer = new JsonSerializer();
-                    list = (List<Bet>)serializer.Deserialize(file, typeof(List<Bet>));
-
-                }
-            } catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-            
-            return list;
-        }
-
-        public List<Game> getGames()
-        {
-            List<Game> list = new List<Game>();
-
-            try
-            {
-                using (StreamReader file = File.OpenText(@"../../Data/games.json"))
+                using (StreamReader file = File.OpenText(@"../../Data/db.json"))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    list = (List<Game>)serializer.Deserialize(file, typeof(List<Game>));
-
+                    return (db)serializer.Deserialize(file, typeof(db));
                 }
-            } catch (Exception e)
+            } catch (Exception ex)
             {
-
-                throw new Exception(e.Message);
+                throw new Exception(ex.Message);
             }
-            return list;
         }
 
-        public List<Person> getPersons()
+
+        public void saveDb(db d)
         {
-
-            List<Person> list = new List<Person>();
-            try { 
-                using (StreamReader file = File.OpenText(@"../../Data/persons.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    list = (List<Person>)serializer.Deserialize(file, typeof(List<Person>));
-
-                }
-            } catch (Exception e)
-            {
-                throw new Exception(e.Message);
-
-            }
-            return list;
-        }
-
-        public List<Ploeg> getPloegen()
-        {
-            List<Ploeg> list = new List<Ploeg>();
-            try
-            {
-                using (StreamReader file = File.OpenText(@"../../Data/ploegen.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    list = (List<Ploeg>)serializer.Deserialize(file, typeof(List<Ploeg>));
-
-                }
-            } catch (Exception e)
-            {
-                throw new Exception(e.Message);
-
-            }
-            return list;
-        }
-
-        public void saveBets(List<Bet> b)
-        {
-            using (StreamWriter file = File.CreateText(@"../../Data/bets.json"))
+            using (StreamWriter file = File.CreateText(@"../../Data/db.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, b);
+                serializer.Serialize(file, d);
             }
         }
 
-        public void saveGames(List<Game> g)
-        {
-            using (StreamWriter file = File.CreateText(@"../../Data/games.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, g);
-            }
-        }
 
-        public void savePersons(List<Person> p)
-        {
-            using (StreamWriter file = File.CreateText(@"../../Data/persons.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, p);
-            }
-        }
-
-        public void savePloegen(List<Ploeg> p)
-        {
-            using (StreamWriter file = File.CreateText(@"../../Data/ploegen.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, p);
-            }
-        }
     }
 }

@@ -57,5 +57,15 @@ namespace GUI_Gokkantoor
         {
 
         }
+
+        private void Gokspel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListMatch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

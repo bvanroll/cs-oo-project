@@ -47,6 +47,7 @@
             this.ListMatch.Name = "ListMatch";
             this.ListMatch.Size = new System.Drawing.Size(120, 95);
             this.ListMatch.TabIndex = 0;
+            this.ListMatch.SelectedIndexChanged += new System.EventHandler(this.ListMatch_SelectedIndexChanged);
             // 
             // ListGokken
             // 
@@ -150,6 +151,7 @@
             this.Controls.Add(this.ListMatch);
             this.Name = "Gokspel";
             this.Text = "Gokspel";
+            this.Load += new System.EventHandler(this.Gokspel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

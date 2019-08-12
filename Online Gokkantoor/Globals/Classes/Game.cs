@@ -56,7 +56,7 @@ namespace Globals.classes
             this.home.scoreChanged += homeSet;
             this.away.scoreChanged += awaySet;
         }
-        public Game(int id, Ploeg home, Ploeg away, int scoreHome, int scoreAway)
+        public Game(int id, PloegInMatch home, PloegInMatch away, int scoreHome, int scoreAway)
         {
             homeSetBool = false;
             awaySetBool = false;

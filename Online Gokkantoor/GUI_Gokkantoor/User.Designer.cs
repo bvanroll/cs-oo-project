@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.naam = new System.Windows.Forms.TextBox();
+            this.achternaam = new System.Windows.Forms.TextBox();
+            this.adres = new System.Windows.Forms.TextBox();
+            this.gsm = new System.Windows.Forms.TextBox();
+            this.balans = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,40 +41,40 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // naam
             // 
-            this.textBox1.Location = new System.Drawing.Point(281, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.naam.Location = new System.Drawing.Point(281, 92);
+            this.naam.Name = "naam";
+            this.naam.Size = new System.Drawing.Size(100, 20);
+            this.naam.TabIndex = 0;
             // 
-            // textBox2
+            // achternaam
             // 
-            this.textBox2.Location = new System.Drawing.Point(281, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.achternaam.Location = new System.Drawing.Point(281, 118);
+            this.achternaam.Name = "achternaam";
+            this.achternaam.Size = new System.Drawing.Size(100, 20);
+            this.achternaam.TabIndex = 1;
             // 
-            // textBox3
+            // adres
             // 
-            this.textBox3.Location = new System.Drawing.Point(281, 145);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.adres.Location = new System.Drawing.Point(281, 145);
+            this.adres.Name = "adres";
+            this.adres.Size = new System.Drawing.Size(100, 20);
+            this.adres.TabIndex = 2;
             // 
-            // textBox4
+            // gsm
             // 
-            this.textBox4.Location = new System.Drawing.Point(281, 170);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.gsm.Location = new System.Drawing.Point(281, 170);
+            this.gsm.Name = "gsm";
+            this.gsm.Size = new System.Drawing.Size(100, 20);
+            this.gsm.TabIndex = 3;
             // 
-            // textBox5
+            // balans
             // 
-            this.textBox5.Location = new System.Drawing.Point(281, 196);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 4;
+            this.balans.Location = new System.Drawing.Point(281, 196);
+            this.balans.Name = "balans";
+            this.balans.Size = new System.Drawing.Size(100, 20);
+            this.balans.TabIndex = 4;
             // 
             // label1
             // 
@@ -130,6 +130,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Toevoegen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // User
             // 
@@ -142,11 +143,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.balans);
+            this.Controls.Add(this.gsm);
+            this.Controls.Add(this.adres);
+            this.Controls.Add(this.achternaam);
+            this.Controls.Add(this.naam);
             this.Name = "User";
             this.Text = "User";
             this.ResumeLayout(false);
@@ -156,11 +157,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox naam;
+        private System.Windows.Forms.TextBox achternaam;
+        private System.Windows.Forms.TextBox adres;
+        private System.Windows.Forms.TextBox gsm;
+        private System.Windows.Forms.TextBox balans;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
